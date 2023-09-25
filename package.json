@@ -1,0 +1,22 @@
+{
+    "name": "git-clonator",
+    "version": "1.0.0",
+    "description": "clonador de repositorios",
+    "scripts": {
+        "build": "tsc",
+        "start": "node",
+        "start:dev": "concurrently \"tsc --watch\" \"nodemon ./dist/index.js -e ts,js\" -n \"TSC,NODE\" -c \"blue,yellow\"",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Alejandro Bongioanni <alejandro.bongioanni@gmail.com>",
+    "license": "ISC",
+    "dependencies": {
+        "log4js": "^6.9.1",
+        "minimist": "^1.2.8"
+    },
+    "devDependencies": {
+        "@types/log4js": "^2.3.5",
+        "@types/minimist": "^1.2.2",
+        "@types/node": "^20.6.5"
+    }
+}
