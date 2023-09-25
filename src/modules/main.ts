@@ -1,7 +1,7 @@
 import * as minimist from 'minimist';
 import { FileManager } from './file-manager';
 import { GitClonator } from './git-clonator';
-import logger from './logger';
+import Logger from './logger';
 
 export class Program {
     public main(...args) {
@@ -19,5 +19,5 @@ export class Program {
 }
 
 process.on('uncaughtException', (error) => {
-    logger.getLogger().info(`Se detiene la ejecucion`);
+    Logger.log(`Se detiene la ejecucion`);
 });

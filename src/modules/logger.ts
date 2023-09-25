@@ -1,27 +1,13 @@
-import * as log4js from 'log4js';
-import * as path from 'path';
+import logger from '../config/logger.config';
 
-log4js.configure({
-    appenders: {
-        myLoggerConsole: { type: 'console' },
-        myLoggerInfo: {
-            type: 'file',
-            filename: path.join(__dirname, '..', '..', 'logs', 'Info.log'),
-        },
-        myLoggerWarn: {
-            type: 'file',
-            filename: path.join(__dirname, '..', '..', 'logs', 'Warn.log'),
-        },
-        myLoggerError: {
-            type: 'file',
-            filename: path.join(__dirname, '..', '..', 'logs', 'Error.log'),
-        },
-    },
-    categories: {
-        default: { appenders: ['myLoggerConsole', 'myLoggerInfo'], level: 'info' },
-        warn: { appenders: ['myLoggerWarn'], level: 'warn' },
-        error: { appenders: ['myLoggerError'], level: 'error' },
-    },
-});
-
-export default log4js;
+export default class Logger {
+    public static log(message: any, ...args) {
+        logger.getLogger().info(message, ...args);
+    }
+    public static error(message: any, ...args) {
+        logger.getLogger('error').error(message, ...args);
+    }
+    public static warn(message: any, ...args) {
+        logger.getLogger('warn').warn(message, ...args);
+    }
+}

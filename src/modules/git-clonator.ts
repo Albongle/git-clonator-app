@@ -1,5 +1,5 @@
 import { FileManager } from './file-manager';
-import logger from './logger';
+import Logger from './logger';
 import { exec } from 'child_process';
 
 export class GitClonator {
@@ -11,17 +11,17 @@ export class GitClonator {
     public cloneListOfRespoitories() {
         const listOfRepositories = this.fileManager.getListOfRespositoriesFromFile();
         const output = this.fileManager.createFolderForSaveRespositories();
-        logger.getLogger().info(`Se van a clonar el siguiente listado de repositorios:`);
-        logger.getLogger().info(listOfRepositories);
+        Logger.log(`Se van a clonar el siguiente listado de repositorios:`);
+        Logger.log(listOfRepositories);
         listOfRepositories.forEach((repository) => {
             const command = `git clone ${repository}  ${output}/${repository.split('.com/').pop()}`;
 
             exec(command, (cloneError, stdout, stderr) => {
                 if (cloneError) {
-                    logger.getLogger('error').error(`Error al clonar ${repository}: ${cloneError.message}`);
+                    Logger.error(`Error al clonar ${repository}: ${cloneError.message}`);
                     return;
                 }
-                logger.getLogger().info(`Repositorio clonado: ${repository}`);
+                Logger.log(`Repositorio clonado: ${repository}`);
             });
         });
     }
