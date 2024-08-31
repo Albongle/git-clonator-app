@@ -17,7 +17,7 @@ Git Clonator es una aplicación desarrollada en Node.js con TypeScript que permi
 
 2. Clona este repositorio en tu máquina local:
     ```bash
-    cd git-clonator
+    cd git-clonator-app
     ```
 3. Instala las dependencias:
     ```bash
