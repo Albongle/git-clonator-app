@@ -19,5 +19,5 @@ export class Program {
 }
 
 process.on('uncaughtException', (error) => {
-    Logger.log(`Se detiene la ejecucion`);
+    Logger.log(`Se detiene la ejecucion ${error.message}`);
 });
