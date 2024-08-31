@@ -1,4 +1,4 @@
-import * as fileSystem from 'fs';
+import fileSystem from 'fs';
 import Logger from './logger';
 import { FileNotFoundError, NotCreateFolderError } from '../types/errors';
 

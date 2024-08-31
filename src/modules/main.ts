@@ -1,4 +1,4 @@
-import * as minimist from 'minimist';
+import minimist from 'minimist';
 import { FileManager } from './file-manager';
 import { GitClonator } from './git-clonator';
 import Logger from './logger';
